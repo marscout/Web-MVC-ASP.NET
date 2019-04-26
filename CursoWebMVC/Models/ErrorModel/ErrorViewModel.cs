@@ -1,6 +1,6 @@
 using System;
 
-namespace CursoWebMVC.Models
+namespace CursoWebMVC.Models.ErrorModel
 {
     public class ErrorViewModel
     {
