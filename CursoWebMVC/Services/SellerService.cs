@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CursoWebMVC.Services
 {
@@ -28,7 +29,7 @@ namespace CursoWebMVC.Services
 
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(obj => id == obj.Id);
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => id == obj.Id);
         }
 
         public void Remove (int id)
