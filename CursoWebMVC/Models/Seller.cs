@@ -9,19 +9,24 @@ namespace CursoWebMVC.Models
     public class Seller
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "{0} required")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "Tamanho do {0} deve ser entre {2} e {1} caracteres")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "{0} required")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-
+        [Required(ErrorMessage = "{0} required")]
         [Display(Name="Birth Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
-
+        [Required(ErrorMessage = "{0} required")]
         [Display(Name ="Base Salary")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} deve ser entre {1} e {2}")]
         [DisplayFormat(DataFormatString ="{0:F2}")]
         public double BaseSalary { get; set; }
 
